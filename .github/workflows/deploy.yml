@@ -88,6 +88,6 @@ jobs:
           git add .
           git commit -m "Automated deployment $(date +'%Y-%m-%d %H:%M:%S')"
           git remote add origin git@hnsac.com:/home/git/blog.git
-          git push -f origin HEAD:master 
+          git push -f origin HEAD:main
         env:
           GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_rsa" 
