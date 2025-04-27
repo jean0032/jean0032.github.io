@@ -45,6 +45,8 @@ jobs:
         run: |
           pnpm build
           touch public/.nojekyll
+          ls -la public
+          pwd
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
