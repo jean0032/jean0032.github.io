@@ -104,4 +104,4 @@ deploy:
   type: 'git'
 repo: 
        hnsac: git@hnsac.com:/home/git/blog.git
-  branch: main
+  branch: master
