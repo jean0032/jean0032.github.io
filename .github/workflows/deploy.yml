@@ -54,19 +54,6 @@ jobs:
         with:
           path: public
 
-      - name: Setup Deploy Private Key
-        env:
-          HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
-        run: |
-          mkdir -p ~/.ssh/
-          echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa 
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan hnsac.com >> ~/.ssh/known_hosts
-
-      - name: Setup Git Infomation
-        run: | 
-          git config --global user.name 'jean0032' 
-          git config --global user.email 'jean0032@gmail.com'
 
   # Deployment job
   deploy:
@@ -80,3 +67,28 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Setup Deploy Private Key
+        env:
+          HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa 
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan hnsac.com >> ~/.ssh/known_hosts
+
+      - name: Setup Git Infomation
+        run: | 
+          git config --global user.name 'jean0032' 
+          git config --global user.email 'jean0032@gmail.com'
+          
+      - name: Deploy to hnsac.com
+        run: |
+          cd public  
+          git init
+          git add .
+          git commit -m "Automated deployment $(date +'%Y-%m-%d %H:%M:%S')"
+          git remote add origin git@hnsac.com:/home/git/blog.git
+          git push -f origin HEAD:main 
+        env:
+          GIT_SSH_COMMAND: "ssh -i ~/.ssh/id_rsa" 
