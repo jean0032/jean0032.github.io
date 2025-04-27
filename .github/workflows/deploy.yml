@@ -84,6 +84,7 @@ jobs:
           
       - name: Deploy to hnsac.com
         run: |
+          git config --global init.defaultBranch main
           git init
           git add .
           git commit -m "Automated deployment $(date +'%Y-%m-%d %H:%M:%S')"
