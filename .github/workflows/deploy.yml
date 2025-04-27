@@ -84,7 +84,8 @@ jobs:
           
       - name: Deploy to hnsac.com
         run: |
-          ls -la
+          ls -la ..
+          pwd
           git config --global init.defaultBranch main
           git init
           git add .
