@@ -101,7 +101,4 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
 repo: 
-       hnsac: git@hnsac.com:/home/git/blog.git
-  branch: master
