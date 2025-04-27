@@ -1,13 +1,8 @@
 ---
-layout: post
-title: RouterOS配合PHP实现动态更新阿里域名云解析_DiskStation_Sep-12-1917-2023_DownloadConflict
-abbrlink: d870ca9e96b449ee81a2174b9158b2e2
-tags: []
-categories:
-  - IT
-  - Linux
-date: 1694517434000
-updated: 1745330173131
+title: RouterOS配合PHP实现动态更新阿里域名云解析
+date: 2022-04-12 17:58:12
+tags: [routeros, aliddns]
+categories: Network
 ---
 
 RouterOS 系统真的非常好用，目前感觉唯一不足的就是对 ddns 更新不支持。但是Ros的脚本很强大，我们可以通过脚本调用 php 的方式，实现自动更新域名解析。
@@ -119,8 +114,9 @@ function Main()
 Main();
 ```
 
-Ros新建Script，代码如下：
 
+
+Ros新建Script，代码如下：
 ```ros
 #PPPoE
 :local pppoe "pppoe-out1"

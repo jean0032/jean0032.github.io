@@ -4,8 +4,8 @@
 
 # Site
 title: 哈尼塞克
-subtitle: ''
-description: ''
+subtitle: '哈尔的移动城堡'
+description: '凉风有信，秋月无边……'
 keywords: HNSaC
 author: HNSaC
 language: zh-CN
@@ -14,8 +14,7 @@ timezone: 'Asia/Shanghai'
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://hnsac.com
-root: /
-permalink: /p/:abbrlink/
+permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks

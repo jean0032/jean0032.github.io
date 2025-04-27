@@ -1,13 +1,8 @@
 ---
-layout: post
 title: Linux&Windows时间统一
-abbrlink: 67cb450764ef4047a4bec29fbd3c562d
-tags: []
-categories:
-  - IT
-  - Linux
-date: 1664422185000
-updated: 1745330113074
+date: 2022-06-30 10:38:30
+tags: [linux, windows]
+categories: Linux
 ---
 
 ### 时间不一致的原因

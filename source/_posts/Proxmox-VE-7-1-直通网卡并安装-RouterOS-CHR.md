@@ -1,13 +1,8 @@
 ---
-layout: post
-title: Proxmox-VE-7.1-直通网卡并安装-RouterOS-CHR
-abbrlink: 7f8227fefbb648f582f38a688f0fb121
-tags: []
-categories:
-  - IT
-  - Linux
-date: 1649757097000
-updated: 1745330163215
+title: Proxmox VE 7.1 直通网卡并安装 RouterOS CHR
+date: 2022-03-30 17:38:30
+tags: [routeros, pve]
+categories: Linux
 ---
 
 ## 准备PVE安装U盘
@@ -24,9 +19,9 @@ Bios设置U盘启动，跟随安装向导默认安装即可，网上资料很多
 
 此源针对付费企业用户，不注释会导致apt环境错误
 
-```bash
+~~~bash
 echo "#deb https://enterprise.proxmox.com/debian/pve bullseye pve-enterprise" > /etc/apt/sources.list.d/pve-enterprise.list
-```
+~~~
 
 ### 系统源更换
 

@@ -1,15 +1,9 @@
 ---
-layout: post
 title: Github Actions 入门教程
-abbrlink: ec0a0b4e831246279f4e552b75c3b802
-tags: []
-categories:
-  - IT
-  - Git
-date: 1694517375000
-updated: 1745329973141
+date: 2022-03-24 16:37:37
+tags: [git, action]
+categories: Git
 ---
-
 ## 一、GitHub Actions 是什么？
 
 大家知道，持续集成由很多操作组成，比如抓取代码、运行测试、登录远程服务器，发布到第三方服务等等。GitHub 把这些操作就称为 actions。
@@ -151,7 +145,7 @@ workflow 文件的主体是`jobs`字段，表示要执行的一项或多项任�
 > ```javascript
 > name: Greeting from Mona
 > on: push
->
+> 
 > jobs:
 >   my-job:
 >     name: My Job
@@ -216,7 +210,7 @@ workflow 文件的主体是`jobs`字段，表示要执行的一项或多项任�
 >     steps:
 >     - name: Checkout
 >       uses: actions/checkout@master
->
+> 
 >     - name: Build and Deploy
 >       uses: JamesIves/github-pages-deploy-action@master
 >       env:
@@ -245,5 +239,6 @@ GitHub 发现了 workflow 文件以后，就会自动运行。你可以在网站
 ![img](https://www.wangbase.com/blogimg/asset/201909/bg2019091109.jpg)
 
 以后，每次修改后推送源码，GitHub Actions 都会自动运行，将构建产物发布到网页。
+
 
 @以上内容转载自[阮一峰的网络日志](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)

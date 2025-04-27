@@ -1,12 +1,8 @@
 ---
-layout: post
-title: Excel坐标转换
-abbrlink: 5114a507e6e6462fba351ba8d8f69edb
-tags: []
-categories:
-  - Work
-date: 1744204514433
-updated: 1744802821426
+title: Excel关于经纬度坐标与十进制坐标的转换
+date: 2025-04-16 19:59:12
+tags: [excel, GIS]
+categories: GIS
 ---
 
 ## 十进制转度分秒
