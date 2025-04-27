@@ -84,7 +84,6 @@ jobs:
           
       - name: Deploy to hnsac.com
         run: |
-          cd public  
           git init
           git add .
           git commit -m "Automated deployment $(date +'%Y-%m-%d %H:%M:%S')"
