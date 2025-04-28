@@ -14,10 +14,10 @@ jobs:
     steps:
 
     - name: Checkout Repository master branch
-      uses: actions/checkout@main
+      uses: actions/checkout@master
       
     - name: Setup Node.js 22.x
-      uses: actions/setup-node@main
+      uses: actions/setup-node@master
       with:
         node-version: "22.x"
     
@@ -49,4 +49,4 @@ jobs:
         git remote add origin git@hnsac.com:/home/git/blog.git
         git add .
         git commit -m "Deploy by GitHub Actions: ${{ github.sha }}"
-        git push -f origin HEAD:main
+        git push -f origin HEAD:master
