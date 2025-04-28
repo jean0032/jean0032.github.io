@@ -12,12 +12,10 @@ jobs:
     runs-on: ubuntu-latest 
         
     steps:
-    # check it to your workflow can access it
-    # from: https://github.com/actions/checkout
+
     - name: Checkout Repository master branch
       uses: actions/checkout@master 
       
-    # from: https://github.com/actions/setup-node  
     - name: Setup Node.js 22.x
       uses: actions/setup-node@master
       with:
@@ -41,6 +39,7 @@ jobs:
       run: | 
         git config --global user.name 'jean0032' 
         git config --global user.email 'jean0032@gmail.com'
+        
     - name: Deploy Hexo 
       run: |
         hexo clean
