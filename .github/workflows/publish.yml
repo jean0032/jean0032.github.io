@@ -1,5 +1,5 @@
 # workflow name
-name: Hexo Blog CI
+name: Publish
 
 # master branch on push, auto run
 on: 
@@ -47,7 +47,7 @@ jobs:
         hexo generate 
         cd public
         git init
-        git remote add origin git@hnsac.com:home/git/blog.git
+        git remote add origin git@hnsac.com:/home/git/blog.git
         git add .
         git commit -m "Deploy by GitHub Actions: ${{ github.sha }}"
         git push -f origin HEAD:main
