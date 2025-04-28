@@ -14,10 +14,10 @@ jobs:
     steps:
 
     - name: Checkout Repository master branch
-      uses: actions/checkout@master 
+      uses: actions/checkout@main
       
     - name: Setup Node.js 22.x
-      uses: actions/setup-node@master
+      uses: actions/setup-node@main
       with:
         node-version: "22.x"
     
