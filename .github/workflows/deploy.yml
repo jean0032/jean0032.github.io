@@ -61,7 +61,12 @@ jobs:
     name: Deploy
     steps:
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: |
+          pwd
+          ls -al
+          actions/deploy-pages@v4
+          pwd
+          ls -al
 
       - name: Setup Deploy Private Key
         env:
