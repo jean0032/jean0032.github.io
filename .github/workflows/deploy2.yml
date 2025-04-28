@@ -1,0 +1,77 @@
+on:
+    # Runs on pushes targeting the `main` branch. Change this to `master` if you're
+    # using the `master` branch as the default branch.
+    push:
+      branches: [main]
+  
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+  
+  # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+  
+  # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+  # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+  concurrency:
+    group: pages
+    cancel-in-progress: false
+  
+  jobs:
+    # Build job
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v3
+          with:
+            fetch-depth: 0
+  
+        - name: Setup pnpm
+          uses: pnpm/action-setup@v4
+  
+        - name: Setup Node
+          uses: actions/setup-node@v4
+          with:
+            node-version: 22
+            cache: pnpm
+  
+        - name: Install dependencies
+          run: pnpm i # or pnpm install / yarn install / bun install
+  
+        - name: Build
+          run: |
+            pnpm build
+   
+    # Deployment job
+    deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Configure Git
+          env:
+            GIT_USERNAME: "jean0032"
+            GIT_EMAIL: "jean0032@gmail.com"
+          run: |
+            git config --global user.name "$GIT_USERNAME"
+            git config --global user.email "$GIT_EMAIL"
+
+        - name: Setup Deploy Private Key
+          env:
+            HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
+          run: |
+            mkdir -p ~/.ssh/
+            echo "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_rsa 
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan hnsac.com >> ~/.ssh/known_hosts
+    
+        - name: Push to Custom Git
+          run: |
+            cd public
+            git init
+            git remote add origin git@hnsac.com:/home/git/blog.git
+            git add .
+            git commit -m "Deploy by GitHub Actions: ${{ github.sha }}"
+            git push -f origin HEAD:main
