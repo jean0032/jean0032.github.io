@@ -24,7 +24,6 @@ pretty_urls:
 # Directory
 source_dir: source
 public_dir: public
-tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
@@ -68,7 +67,6 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-tag_map:
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
