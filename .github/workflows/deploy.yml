@@ -52,15 +52,19 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: public  # 产物路径
-          retention-days: 1
+          # retention-days: 1
 
   # Deployment job
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: |
           pwd
           ls -al
