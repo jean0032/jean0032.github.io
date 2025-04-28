@@ -43,11 +43,12 @@ jobs:
         git config --global user.email 'jean0032@gmail.com'
     - name: Deploy Hexo 
       run: |
+        ssh -T git@hnsac.com
         hexo clean
         hexo generate 
         cd public
         git init
-        git remote add origin git@hnsac.com:/home/git/blog.git
+        git remote add origin git@hnsac.com:home/git/blog.git
         git add .
         git commit -m "Deploy by GitHub Actions: ${{ github.sha }}"
         git push -f origin HEAD:main
